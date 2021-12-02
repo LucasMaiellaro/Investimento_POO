@@ -54,7 +54,7 @@ public class ProjetoDAOImpl {
     public void delete(Long id) {
         Optional<Projeto> projeto = getProjetoById(id);
         if (projeto.isPresent())
-            dao.deleteById(id);
+            projeto.get().getStatus().setId(2L);
     }
 
 }

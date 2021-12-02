@@ -19,9 +19,6 @@ public class PropostaDAOImpl {
     @Autowired
     private ProjetoDAOImpl projetoImpl;
 
-    @Autowired
-    private UsuarioDAOImpl usuarioImpl;
-
     public Iterable<Proposta> getPropostas() {
         return dao.findAll();
     }
@@ -59,7 +56,7 @@ public class PropostaDAOImpl {
     public void delete(Long id) {
         Optional<Proposta> proposta = getPropostaById(id);
         if (proposta.isPresent())
-            dao.deleteById(id);
+            proposta.get().getStatus().setId(2L);
     }
 
 }

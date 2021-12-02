@@ -18,4 +18,7 @@ public class Projeto {
     @OneToMany
     private List<Proposta> propostas;
 
+    @ManyToOne
+    private Status status;
+
 }

@@ -20,11 +20,6 @@ public class UsuarioController {
         return ResponseEntity.ok(impl.getUsuarios());
     }
 
-    @GetMapping("email/{email}")
-    public ResponseEntity<Optional<Usuario>> getUsuarioByEmail(@PathVariable("email") String email) {
-        return ResponseEntity.ok(impl.getUsuarioByEmail(email));
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity getUsuarioById(@PathVariable("id") Long id) {
         Optional<Usuario> usuario = impl.getUsuarioById(id);

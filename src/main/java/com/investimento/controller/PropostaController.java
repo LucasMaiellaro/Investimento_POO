@@ -61,10 +61,15 @@ public class PropostaController {
         Optional<Usuario> usuario = usuarioImpl.getUsuarioById(idUsuario);
         Optional<Proposta> proposta = impl.getPropostaById(idProposta);
 
-        if (usuario.get().getEInvestidor() == false)
+        if (usuario.get().getEInvestidor() == false) {
             return "Você ainda não pode investir, registre-se como um investidor.";
-        else
-            return "Obrigado! Você investiu R$" + proposta.get().getValor() + " nesse projeto!";
+        } else {
+            if (proposta.get().getStatus().getId() == 3 || proposta.get().getStatus().getId() == 2) {
+                return "Você não pode mais contribuir com essa proposta";
+            } else {
+                return "Obrigado! Você investiu R$" + proposta.get().getValor() + " nesse projeto!";
+            }
+        }
     }
 
 }

@@ -14,4 +14,7 @@ public class Proposta {
     private Double valor;
     private Double porcentagem;
 
+    @ManyToOne
+    private Status status;
+
 }
